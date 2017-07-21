@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:include="_layout :: htmlhead" th:with="title='Hello'"></head>
+</head>
+<body>
+<input th:fragment='view_id' type="hidden" value="home" id="view-id" name="view-id"/>
+<div th:replace="_layout :: navbar">(navbar)</div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="_layout :: sidebar">(sidebar)</div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h2 class="page-header">Dashboard</h2>
+
+            <div class="row placeholders">
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <h3><span class="label label-info">Links</span><span class="badge">${links?size!}</span></h3>
+                    <span class="text-muted">have been collected</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <h3><span class="label label-success">Customers</span><span class="badge" th:text="${customersCount}">100</span></h3>
+                    <span class="text-muted">all over the globe</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <h3><span class="label label-primary">Activity</span><span class="badge">${activities?size!}</span></h3>
+                    <span class="text-muted">have been performed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:include="_layout :: footer" id="footer">(footer)</div>
+
+</body>
+</html>
